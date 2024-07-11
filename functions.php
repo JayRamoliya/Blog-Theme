@@ -2013,3 +2013,53 @@ add_action('wp_enqueue_scripts', 'custom_media_enqueue');
 // name file and locations
 
 // plugin name unique name, minimum one php file, plugins/ inside
+
+
+
+
+
+
+
+function save_custom_meta($post_id) {
+    if (get_post_type($post_id) == 'products') {
+        delete_transient('products_transient');
+    }
+}
+add_action('save_post', 'save_custom_meta');
+
+
+function count_blocks_on_post_save($post_id) {
+    if (get_post_type($post_id) == 'products') {
+        $post = get_post($post_id);
+        $blocks = parse_blocks($post->post_content);
+        $block_count = count($blocks);
+        update_post_meta($post_id, 'block_count', $block_count);
+    }
+}
+add_action('save_post', 'count_blocks_on_post_save');
+
+
+
+
+
+
+// To count the number of blocks used in a post in the Gutenberg editor when the save_post hook is called, you can use the following code:
+
+// function count_blocks_on_post_save($post_id) {
+//   $post = get_post($post_id);
+//   $blocks = parse_blocks($post->post_content);
+//   $block_count = count($blocks);
+//   // Do something with the count, like logging or updating a meta field
+//   error_log("Post $post_id uses $block_count blocks.");
+// }
+// add_action('save_post', 'count_blocks_on_post_save');
+
+// Here's how it works:
+
+// 1. The save_post hook is triggered when a post is saved.
+// 2. The count_blocks_on_post_save function is called, which retrieves the post content using get_post.
+// 3. The parse_blocks function is used to parse the post content into an array of block objects.
+// 4. The count function is used to count the number of blocks in the array.
+// 5. The count is logged using error_log, but you can modify the code to do something else with the count, like updating a meta field.
+
+// Note that this code uses the parse_blocks function, which is part of the Gutenberg API. This function takes the post content and returns an array of block objects, which can be counted using the count function.
