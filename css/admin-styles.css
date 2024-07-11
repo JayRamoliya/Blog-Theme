@@ -1,0 +1,100 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table .thead tr th {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.table .tbody tr td {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.thead tr td {
+    text-align: center;
+}
+
+
+
+
+.cp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.cp-table th,
+.cp-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.cp-table th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.cp-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.cp-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.cp-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #363b3f;
+    color: white;
+}
+
+.cp-no-data {
+    text-align: center;
+    padding: 10px;
+    color: red;
+}
+
+
+
+
+.page-numbers {
+    width: 15px;
+    padding: 6px 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 3px;
+
+}
+.page-numbers:hover{
+    border: 1px solid #000;
+}
+
+.current {
+    pointer-events: none;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#cp_paginations{
+    text-align: center;
+}
+
+.cp_a{
+    text-decoration: none;
+}
+
+
+.cp_single{
+    text-align: center;
+}
